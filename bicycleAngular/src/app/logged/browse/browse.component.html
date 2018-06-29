@@ -1,0 +1,5 @@
+<h2>Create Listing</h2>
+<app-listing [edit]="false" [listing]="{}" (reloadEmitter)="reloadFromChild($event)"></app-listing>
+<h2>Edit/Delete Listings</h2>
+<p *ngIf="error">{{ error.message }}</p>
+<app-listing *ngFor="let listing of listings" [edit]="true" [listing]="listing" (reloadEmitter)="reloadFromChild($event)"></app-listing>

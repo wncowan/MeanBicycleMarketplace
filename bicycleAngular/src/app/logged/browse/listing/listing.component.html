@@ -1,0 +1,27 @@
+<p *ngIf="error">{{ error.message }}</p>
+<form (submit)="submit()">
+  <div class="row">
+    <div class="col">
+      <h5>Image URL</h5>
+      <p><input type="text" required name="listing.img_url" [(ngModel)]="listing.img_url"></p>
+      <img [src]="listing.img_url">
+    </div>
+    <div class="col">
+      <h5>Title</h5>
+      <p><input type="text" required name="listing.title" [(ngModel)]="listing.title"></p>
+      <h5>Description</h5>
+      <p><textarea required maxlength="200" name="listing.description" [(ngModel)]="listing.description"></textarea></p>
+    </div>
+    <div class="col">
+      <h5>Price</h5>
+      <p><input type="number" required minimum="1" name="listing.price" [(ngModel)]="listing.price"></p>
+      <h5>Location</h5>
+      <p><input type="text" required name="listing.location" [(ngModel)]="listing.location"></p>
+      <div *ngIf="edit">
+        <p><input type="submit" class="btn btn-success" value="Update"></p>
+        <p><button class="btn btn-danger" (click)="delete()">Delete</button></p>
+      </div>
+      <p *ngIf="!edit"><input type="submit" class="btn btn-success" value="Create"></p>
+    </div>
+  </div>
+</form>
